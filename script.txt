@@ -1,0 +1,1 @@
+python train.py --splatting_config configs/hierarchical.json -s /mnt/e/PhD/gaussian_VR/tandt_db/tandt/train/
