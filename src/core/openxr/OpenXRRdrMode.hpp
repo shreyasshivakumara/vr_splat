@@ -60,6 +60,7 @@ namespace sibr
         void onGui();
 
     private:
+        private:
         std::unique_ptr<OpenXRHMD> m_openxrHmd;                  ///< OpenXR interface
         sibr::GLShader m_quadShader;                             ///< Shader for drawing left/right eye in desktop window
         std::map<int, SwapchainImageRenderTarget::Ptr> m_RTPool; ///< Pool for RenderTarget used to extract textures for each view
@@ -67,7 +68,14 @@ namespace sibr
         bool m_flipY = true;                                     ///< Rotate camera to render scenes which are y-inverted
         bool m_appFocused = false;                               ///< Application is visible and focused in the headset)
         int m_downscaleResolution = 1.0f;                        ///< Downscale rendering resolution to improve performance
+        bool m_monocularMode = false;                            ///< Enable monocular rendering (same view for both eyes)
         RenderTarget::UPtr _leftRT, _rightRT;                    ///< Only used to implement abstract method lRT andrRT!
+        
+        // Screenshot functionality
+        bool m_saveScreenshot = false;                           ///< Flag to trigger screenshot capture
+        std::shared_ptr<sibr::ImageRGB> m_leftEyeCapture;        ///< Captured left eye image
+        std::shared_ptr<sibr::ImageRGB> m_rightEyeCapture;       ///< Captured right eye image
+        int m_screenshotCounter = 0;                             ///< Counter for screenshot filenames
 
         std::pair<uint32_t*, uint32_t*> m_visibilityMask_fullres[2];     ///< Visibility mask for each eye
         std::pair<uint32_t*, uint32_t*> m_visibilityMask_halfres[2];     ///< Visibility mask for each eye

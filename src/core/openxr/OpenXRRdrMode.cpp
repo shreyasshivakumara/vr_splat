@@ -108,13 +108,37 @@ namespace sibr
                                  {
                                     OpenXRHMD::Eye eye = viewIndex == 0 ? OpenXRHMD::Eye::LEFT : OpenXRHMD::Eye::RIGHT;
 
+                                    // Get FOV and camera parameters based on monocular mode
                                     auto fov = this->m_openxrHmd->getFieldOfView(eye);
+                                    auto q = camera.rotation();
+                                    auto pos = camera.position();
+                                    
+                                    // In monocular mode, use center position between eyes for both views
+                                    if (m_monocularMode) {
+                                        // Calculate center position between left and right eye
+                                        auto leftPos = camera.position();
+                                        auto rightPos = camera.rightTransform().position();
+                                        pos = (leftPos + rightPos) * 0.5f;
+                                        
+                                        // Use left eye FOV for both eyes (could also average FOVs)
+                                        fov = this->m_openxrHmd->getFieldOfView(OpenXRHMD::Eye::LEFT);
+                                        
+                                        // Debug output (only for left eye to avoid spam)
+                                        if (viewIndex == 0) {
+                                            static int frameCount = 0;
+                                            if (frameCount++ % 120 == 0) { // Print every 2 seconds at 60fps
+                                                SIBR_LOG << "MONOCULAR MODE: Center position = (" << pos.x() << ", " << pos.y() << ", " << pos.z() << ")" << std::endl;
+                                            }
+                                        }
+                                    } else {
+                                        // Standard stereo mode: use eye-specific parameters
+                                        q = viewIndex == 0 ? camera.rotation() : camera.rightTransform().rotation();
+                                        pos = viewIndex == 0 ? camera.position() : camera.rightTransform().position();
+                                    }
+                                    
                                     float scaley = tan(fov.w()) - tan(fov.z());
                                     float scalex = tan(fov.y()) - tan(fov.x());
                                     float aspect = scalex / scaley;
-
-                                    auto q = viewIndex == 0 ? camera.rotation() : camera.rightTransform().rotation();
-                                    auto pos = viewIndex == 0 ? camera.position() : camera.rightTransform().position();
 
                                     // Define camera from OpenXR eye view position/orientation/fov
                                     Camera cam;
@@ -129,7 +153,15 @@ namespace sibr
                                      // Note: setStereoCam() used in SteroAnaglyph canno be reused here,
                                      // because headset eye views have asymetric fov
                                      // We therefore use the perspective() method with principal point positioning instead
-                                     cam.principalPoint(Eigen::Vector2f(1.f, 1.f) - this->m_openxrHmd->getScreenCenter(eye));
+                                     
+                                     if (m_monocularMode) {
+                                         // For monocular mode, use centered principal point
+                                         cam.principalPoint(Eigen::Vector2f(0.0f, 0.0f)); // Centered
+                                     } else {
+                                         // Standard stereo mode: use eye-specific screen center
+                                         cam.principalPoint(Eigen::Vector2f(1.f, 1.f) - this->m_openxrHmd->getScreenCenter(eye));
+                                     }
+                                     
                                      cam.perspective(fov.w() - fov.z(), aspect, cam.znear(), cam.zfar());
 
                                      cam.setVisibilityMaskFullres(m_visibilityMask_fullres[viewIndex]);
@@ -163,6 +195,43 @@ namespace sibr
                                      }
 
                                      rt->unbind();
+                                     
+                                     // Capture screenshot if requested
+                                     if (this->m_saveScreenshot)
+                                     {
+                                         // Read pixels from the render target
+                                         rt->bind();
+                                         auto capturedImage = std::make_shared<sibr::ImageRGB>(w, h);
+                                         glReadPixels(0, 0, w, h, GL_RGB, GL_UNSIGNED_BYTE, capturedImage->data());
+                                         rt->unbind();
+                                         
+                                         // Flip image vertically (OpenGL reads bottom-up)
+                                         capturedImage->flipH();
+                                         
+                                         // Store in appropriate eye buffer
+                                         if (eye == OpenXRHMD::Eye::LEFT)
+                                         {
+                                             this->m_leftEyeCapture = capturedImage;
+                                         }
+                                         else
+                                         {
+                                             this->m_rightEyeCapture = capturedImage;
+                                             
+                                             // Save both images when right eye is done
+                                             std::string leftFilename = "screenshot_left_" + std::to_string(this->m_screenshotCounter) + ".png";
+                                             std::string rightFilename = "screenshot_right_" + std::to_string(this->m_screenshotCounter) + ".png";
+                                             
+                                             this->m_leftEyeCapture->save(leftFilename);
+                                             this->m_rightEyeCapture->save(rightFilename);
+                                             
+                                             SIBR_LOG << "✓ Saved stereo screenshot:" << std::endl;
+                                             SIBR_LOG << "  Left:  " << leftFilename << std::endl;
+                                             SIBR_LOG << "  Right: " << rightFilename << std::endl;
+                                             
+                                             this->m_screenshotCounter++;
+                                             this->m_saveScreenshot = false;
+                                         }
+                                     }
 
                                      // Draw the left and right textures into the UI window
                                      if (optDest)
@@ -231,6 +300,33 @@ namespace sibr
         ImGui::SameLine();
         ImGui::RadioButton("Seated", &m_vrExperience, 1);
         ImGui::Checkbox("Y-Invert scene", &m_flipY);
+        
+        ImGui::Separator();
+        ImGui::Text("VR Rendering Mode:");
+        if (ImGui::Checkbox("Monocular rendering", &m_monocularMode))
+        {
+            SIBR_LOG << "Monocular mode toggled to: " << (m_monocularMode ? "ON" : "OFF") << std::endl;
+        }
+        if (ImGui::IsItemHovered())
+        {
+            ImGui::SetTooltip("Render the same view to both eyes (no stereo depth)");
+        }
+        ImGui::SameLine();
+        ImGui::Text(m_monocularMode ? "[MONO]" : "[STEREO]");
+        ImGui::Separator();
+        
+        // Screenshot button
+        if (ImGui::Button("Save Stereo Screenshot"))
+        {
+            m_saveScreenshot = true;
+            SIBR_LOG << "Screenshot requested - will capture next frame" << std::endl;
+        }
+        if (ImGui::IsItemHovered())
+        {
+            ImGui::SetTooltip("Save left and right eye views as PNG files");
+        }
+        ImGui::Separator();
+        
         if (m_openxrHmd->isSessionRunning())
         {
             const auto report = m_openxrHmd->getRefreshReport();
