@@ -6,7 +6,7 @@
 param(
     [string]$ModelName = "tree_render",
     [int]$RenderingMode = 0,
-    [int]$Iteration = 30000,
+    [int]$Iteration = 35000,
     [int]$Width = 1200,
     [int]$Height = 800
 )
