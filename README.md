@@ -5,26 +5,48 @@ A VR and Desktop viewer for Gaussian Splatting scenes with easy-to-use launch sc
 ## Quick Start
 
 ### Prerequisites
-- VR Headset (for VR mode) - tested with Meta Quest
+- VR Headset (for VR mode) - tested with Meta Quest 2
 - NVIDIA GPU with OpenGL 4.6 support
 - Built VRSplat project (SIBR viewers)
+- Windows with PowerShell
 
 ### Running the Viewer
 
-#### PowerShell Script (Recommended for Windows)
+#### Step 1: Connect VR Headset (for VR mode)
+1. Connect your Meta Quest 2 (or compatible OpenXR headset) to your PC
+2. Ensure Oculus/Meta software is running and headset is tracked
+3. Verify the headset is active and ready
+
+#### Step 2: Launch the Viewer
+
+**PowerShell Script (Recommended for Windows)**
+
+Open PowerShell in the VRSplat directory and run:
+
 ```powershell
+# VR mode with controller movement (RECOMMENDED)
+.\execute_viewer.ps1 treehill 2
+
 # Desktop mode (default)
 .\execute_viewer.ps1
 
 # Desktop mode with specific model
 .\execute_viewer.ps1 tree_render
 
-# VR mode
-.\execute_viewer.ps1 tree_render 2
-
 # Different model in VR mode
 .\execute_viewer.ps1 5751dc55-7 2
 ```
+
+#### Step 3: Use VR Controller Movement
+
+Once in VR:
+1. Look at the desktop window to see the OpenXR GUI
+2. Adjust **Movement Speed** slider (start with 0.05-0.15 for comfortable speed)
+3. Use **Right Thumbstick** on your controller:
+   - Push **forward** to move in the direction you're looking
+   - Push **backward** to move backward
+   - Push **left/right** to strafe
+4. If you get disoriented, use **Reset Position Offset** button to return to start
 
 #### Direct Command
 ```powershell
@@ -108,6 +130,26 @@ Each model directory should contain:
 - **Tracking**: Full 6DOF head and controller tracking
 - **Performance**: High-quality Gaussian splats with 30000 iterations
 - **Compatibility**: Tested with Meta Quest via OpenXR
+
+### VR Controller Movement
+
+The VR viewer now supports free movement using your VR controller:
+
+- **Right Thumbstick**: Move through the scene
+  - Forward/Backward: Push stick forward/backward
+  - Strafe Left/Right: Push stick left/right
+  - Movement stays level (horizontal plane only)
+- **Movement Speed**: Adjustable via the OpenXR GUI panel (0.001 to 1.0)
+- **Reset Position**: Use the "Reset Position Offset" button in the GUI to return to the original camera position
+- **Current Offset**: The GUI displays your accumulated movement coordinates
+
+### VR GUI Controls
+
+Access the OpenXR GUI panel (visible in the desktop window) to adjust:
+- **Movement Speed**: Fine-tune controller movement speed
+- **Monocular/Stereo Mode**: Toggle between mono and stereo rendering
+- **Screenshot**: Capture stereo screenshots of the current view
+- **Position Reset**: Reset accumulated movement offset
 
 ## Desktop Mode Details
 
