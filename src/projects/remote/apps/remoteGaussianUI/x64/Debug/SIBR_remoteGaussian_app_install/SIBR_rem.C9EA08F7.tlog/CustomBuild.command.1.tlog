@@ -1,0 +1,20 @@
+^E:\PHD\GAUSSIAN_VR\VRSPLAT\SIBR_VIEWERS\CMAKEFILES\AA17B98C20B9188A0B48AF07A9D76F12\SIBR_REMOTEGAUSSIAN_APP_INSTALL.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -DBUILD_TYPE=Debug -DCOMPONENT=SIBR_remoteGaussian_app_install -P E:/PhD/gaussian_VR/VRSplat/SIBR_viewers/cmake_install.cmake
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^E:\PHD\GAUSSIAN_VR\VRSPLAT\SIBR_VIEWERS\SRC\PROJECTS\REMOTE\APPS\REMOTEGAUSSIANUI\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SE:/PhD/gaussian_VR/VRSplat/SIBR_viewers -BE:/PhD/gaussian_VR/VRSplat/SIBR_viewers --check-stamp-file E:/PhD/gaussian_VR/VRSplat/SIBR_viewers/src/projects/remote/apps/remoteGaussianUI/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

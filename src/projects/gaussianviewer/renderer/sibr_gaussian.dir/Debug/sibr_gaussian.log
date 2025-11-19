@@ -1,0 +1,17 @@
+﻿  GaussianView.cpp
+  Please define _WIN32_WINNT or _WIN32_WINDOWS appropriately. For example:
+  - add -D_WIN32_WINNT=0x0601 to the compiler command line; or
+  - add _WIN32_WINNT=0x0601 to your project's Preprocessor Definitions.
+  Assuming _WIN32_WINNT=0x0601 (i.e. Windows 7 target).
+E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\projects\gaussianviewer\renderer\GaussianView.cpp(569,56): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\projects\gaussianviewer\renderer\GaussianView.cpp(568,57): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\projects\gaussianviewer\renderer\GaussianView.cpp(797,58): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\projects\gaussianviewer\renderer\GaussianView.cpp(796,59): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\projects\gaussianviewer\renderer\GaussianView.cpp(891,40): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\projects\gaussianviewer\renderer\GaussianView.cpp(892,40): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\extlibs\CudaRasterizer\CudaRasterizer\cuda_rasterizer\rasterizer.h(120): warning C4715: 'CudaRasterizer::toString': not all control paths return a value
+E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\extlibs\CudaRasterizer\CudaRasterizer\cuda_rasterizer\rasterizer.h(99): warning C4715: 'CudaRasterizer::toString': not all control paths return a value
+  LINK : E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\install\bin\sibr_gaussian_d.dll not found or not built by the last incremental link; performing full link
+     Creating library E:/PhD/gaussian_VR/VRSplat/SIBR_viewers/install/lib/sibr_gaussian_d.lib and object E:/PhD/gaussian_VR/VRSplat/SIBR_viewers/install/lib/sibr_gaussian_d.exp
+LINK : warning LNK4098: defaultlib 'LIBCMT' conflicts with use of other libs; use /NODEFAULTLIB:library
+  sibr_gaussian.vcxproj -> E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\install\bin\sibr_gaussian_d.dll

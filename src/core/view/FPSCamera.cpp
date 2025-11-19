@@ -18,6 +18,8 @@
 #include "core/view/UIShortcuts.hpp"
 #include "core/graphics/GUI.hpp"
 
+#include <cmath>
+
 
 # define IBRVIEW_CAMSPEED 1.f
 
@@ -57,7 +59,47 @@ namespace sibr {
 		if (!_hasBeenInitialized) { return; }
 		// Read input and update camera.
 		moveUsingWASD(input, deltaTime);
+		moveUsingGamepad(input, deltaTime);
 		moveUsingMousePan(input, deltaTime);
+	}
+
+
+	void FPSCamera::moveUsingGamepad(const sibr::Input& input, float deltaTime)
+	{
+
+		if (input.key().isActivated(sibr::Key::LeftControl)) { return; }
+
+		const auto & gp = input.gamepad();
+		if (!gp.present) { return; }
+
+		float deadzone = 0.2f;
+		float lx = gp.axes.size() > 0 ? gp.axes[0] : 0.f; // left stick X
+		float ly = gp.axes.size() > 1 ? gp.axes[1] : 0.f; // left stick Y
+		float rx = gp.axes.size() > 2 ? gp.axes[2] : 0.f; // right stick X
+		float ry = gp.axes.size() > 3 ? gp.axes[3] : 0.f; // right stick Y
+
+		if (std::abs(lx) < deadzone) lx = 0.f;
+		if (std::abs(ly) < deadzone) ly = 0.f;
+		if (std::abs(rx) < deadzone) rx = 0.f;
+		if (std::abs(ry) < deadzone) ry = 0.f;
+
+		float camSpeed = 2.f * deltaTime * IBRVIEW_CAMSPEED * _speedFpsCam;
+		float camRotSpeed = 30.f * deltaTime * IBRVIEW_CAMSPEED * _speedRotFpsCam;
+
+		sibr::Vector3f move(0,0,0);
+
+		// left stick: lx -> strafe (x), ly -> forward/back (z)
+		move.x() += lx * camSpeed;
+		move.z() += -ly * camSpeed;
+
+		// right stick: rx -> yaw (y), ry -> pitch (x)
+		sibr::Vector3f pivot(0,0,0);
+		pivot[1] += rx * camRotSpeed;
+		pivot[0] += -ry * camRotSpeed;
+
+		_currentCamera.translate(move, _currentCamera.transform());
+		_currentCamera.rotate(pivot, _currentCamera.transform());
+
 	}
 
 	void FPSCamera::snap(const std::vector<InputCamera::Ptr> & cams){
@@ -105,6 +147,26 @@ namespace sibr {
 			}
 			ImGui::InputFloat("Rot. speed", &_speedRotFpsCam, 0.1f, 0.5f);
 			ImGui::PopItemWidth();
+            
+			// Gamepad debug
+			const auto & gp = sibr::Input::global().gamepad();
+			ImGui::Separator();
+			ImGui::Text("Gamepad present: %s", gp.present?"yes":"no");
+			if (gp.present) {
+				ImGui::Text("Axes: %d", (int)gp.axes.size());
+				ImGui::SameLine();
+				ImGui::Text("Buttons: %d", (int)gp.buttons.size());
+				for (int i = 0; i < (int)gp.axes.size() && i < 8; ++i) {
+					ImGui::Text("axis[%d]=%0.3f", i, gp.axes[i]);
+				}
+				if (gp.buttons.size() > 0) {
+					ImGui::Text("Buttons (first 12):");
+					for (int i = 0; i < (int)gp.buttons.size() && i < 12; ++i) {
+						ImGui::SameLine();
+						ImGui::Text("b%d=%d", i, (int)gp.buttons[i]);
+					}
+				}
+			}
 		}
 		ImGui::End();
 	}

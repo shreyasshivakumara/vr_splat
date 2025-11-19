@@ -1,0 +1,10 @@
+﻿  main.cpp
+E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core/openxr/OpenXRRdrMode.hpp(73,37): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\projects\gaussianviewer\apps\gaussianViewer\main.cpp(66,32): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\projects\gaussianviewer\apps\gaussianViewer\main.cpp(67,31): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\projects\gaussianviewer\apps\gaussianViewer\main.cpp(69,43): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\projects\gaussianviewer\apps\gaussianViewer\main.cpp(81,6): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\projects\gaussianviewer\apps\gaussianViewer\main.cpp(199,39): warning C4244: '=': conversion from 'float' to 'uint', possible loss of data
+E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\projects\gaussianviewer\apps\gaussianViewer\main.cpp(203,40): warning C4244: '=': conversion from 'float' to 'uint', possible loss of data
+E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\projects\gaussianviewer\apps\gaussianViewer\main.cpp(206,40): warning C4244: '=': conversion from 'float' to 'uint', possible loss of data
+  SIBR_gaussianViewer_app.vcxproj -> E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\install\bin\SIBR_gaussianViewer_app_d.exe

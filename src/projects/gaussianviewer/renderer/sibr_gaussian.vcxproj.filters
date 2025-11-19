@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\projects\gaussianviewer\renderer\GaussianSurfaceRenderer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\projects\gaussianviewer\renderer\GaussianView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\projects\gaussianviewer\renderer\Config.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\projects\gaussianviewer\renderer\GaussianSurfaceRenderer.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\projects\gaussianviewer\renderer\GaussianView.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\extlibs\picojson\picojson\picojson.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\extlibs\rapidxml\rapidxml\rapidxml.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\extlibs\rapidxml\rapidxml\rapidxml_iterators.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\extlibs\rapidxml\rapidxml\rapidxml_print.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\extlibs\rapidxml\rapidxml\rapidxml_utils.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\extlibs\nanoflann\nanoflann\nanoflann.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\projects\gaussianviewer\renderer\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\projects\gaussianviewer\renderer\shaders\copy.frag">
+      <Filter>Source Files\shaders</Filter>
+    </None>
+    <None Include="E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\projects\gaussianviewer\renderer\shaders\copy.vert">
+      <Filter>Source Files\shaders</Filter>
+    </None>
+    <None Include="E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\projects\gaussianviewer\renderer\shaders\gaussian_surface.frag">
+      <Filter>Source Files\shaders</Filter>
+    </None>
+    <None Include="E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\projects\gaussianviewer\renderer\shaders\gaussian_surface.vert">
+      <Filter>Source Files\shaders</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{BE4581D1-BAC5-3B76-A7B1-90347856BF73}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{DA1E0CC6-B645-3662-B3B6-FA6474EA2EC1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\shaders">
+      <UniqueIdentifier>{6AD3E063-36DA-3AFE-B5AD-2E83E476808F}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

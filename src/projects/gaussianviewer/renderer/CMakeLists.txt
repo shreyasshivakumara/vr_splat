@@ -47,7 +47,8 @@ target_link_libraries(${PROJECT_NAME}
 	sibr_assets
 	sibr_renderer
 	sibr_basic
-	CUDA::cudart
+	CUDA::cudart_static
+	CUDA::cuda_driver
 	CudaRasterizer
 	nppc
 	nppig
@@ -65,7 +66,7 @@ target_link_libraries(${PROJECT_NAME}
 	sibr_assets
 	sibr_renderer
 	sibr_basic
-	CUDA::cudart
+	CUDA::cudart_static
 	CudaRasterizer
 )
 endif()

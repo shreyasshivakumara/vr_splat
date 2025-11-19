@@ -1,0 +1,199 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{F0AB01D1-750B-3898-805D-78C0AD15947C}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.22621.0</WindowsTargetPlatformVersion>
+    <Platform>x64</Platform>
+    <ProjectName>sibr_renderer_install</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\CUDA 12.0.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\extlibs\glew\glew-2.0.0\include;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\extlibs\assimp\Assimp-4.1.0\include;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\extlibs\ffmpeg\bin\include;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\extlibs\ffmpeg\doc\include;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\extlibs\ffmpeg\examples\include;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\extlibs\ffmpeg\include\include;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\extlibs\ffmpeg\lib\include;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\extlibs\ffmpeg\presets\include;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\extlibs\ffmpeg\include;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\extlibs\embree3\embree-3.6.1.x64.vc14.windows\include;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\extlibs\eigen3\eigen\include;\usr\include\eigen3;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\extlibs\boost\boost-1.71\include;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\extlibs\boost\boost-1.71;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\extlibs\nativefiledialog\nfd\include;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\extlibs\opencv\opencv-4.5.0\include;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\extlibs\glfw\glfw-3.2.1\include;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\extlibs\openxr\openxr_loader_windows-1.0.29\include;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\extlibs\imgui;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\extlibs\imgui\imgui;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\extlibs\mrf;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\extlibs\mrf\mrf;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\extlibs\nanoflann;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\extlibs\nanoflann\nanoflann;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\extlibs\picojson;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\extlibs\picojson\picojson;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\extlibs\rapidxml;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\extlibs\rapidxml\rapidxml;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\extlibs\xatlas;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\extlibs\xatlas\xatlas;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\extlibs\xatlas\xatlas\source\xatlas;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\.;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\extlibs\glew\glew-2.0.0\include;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\extlibs\assimp\Assimp-4.1.0\include;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\extlibs\ffmpeg\bin\include;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\extlibs\ffmpeg\doc\include;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\extlibs\ffmpeg\examples\include;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\extlibs\ffmpeg\include\include;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\extlibs\ffmpeg\lib\include;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\extlibs\ffmpeg\presets\include;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\extlibs\ffmpeg\include;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\extlibs\embree3\embree-3.6.1.x64.vc14.windows\include;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\extlibs\eigen3\eigen\include;\usr\include\eigen3;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\extlibs\boost\boost-1.71\include;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\extlibs\boost\boost-1.71;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\extlibs\nativefiledialog\nfd\include;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\extlibs\opencv\opencv-4.5.0\include;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\extlibs\glfw\glfw-3.2.1\include;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\extlibs\openxr\openxr_loader_windows-1.0.29\include;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\extlibs\imgui;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\extlibs\imgui\imgui;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\extlibs\mrf;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\extlibs\mrf\mrf;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\extlibs\nanoflann;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\extlibs\nanoflann\nanoflann;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\extlibs\picojson;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\extlibs\picojson\picojson;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\extlibs\rapidxml;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\extlibs\rapidxml\rapidxml;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\extlibs\xatlas;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\extlibs\xatlas\xatlas;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\extlibs\xatlas\xatlas\source\xatlas;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\.;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\extlibs\glew\glew-2.0.0\include;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\extlibs\assimp\Assimp-4.1.0\include;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\extlibs\ffmpeg\bin\include;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\extlibs\ffmpeg\doc\include;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\extlibs\ffmpeg\examples\include;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\extlibs\ffmpeg\include\include;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\extlibs\ffmpeg\lib\include;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\extlibs\ffmpeg\presets\include;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\extlibs\ffmpeg\include;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\extlibs\embree3\embree-3.6.1.x64.vc14.windows\include;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\extlibs\eigen3\eigen\include;\usr\include\eigen3;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\extlibs\boost\boost-1.71\include;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\extlibs\boost\boost-1.71;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\extlibs\nativefiledialog\nfd\include;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\extlibs\opencv\opencv-4.5.0\include;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\extlibs\glfw\glfw-3.2.1\include;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\extlibs\openxr\openxr_loader_windows-1.0.29\include;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\extlibs\imgui;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\extlibs\imgui\imgui;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\extlibs\mrf;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\extlibs\mrf\mrf;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\extlibs\nanoflann;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\extlibs\nanoflann\nanoflann;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\extlibs\picojson;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\extlibs\picojson\picojson;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\extlibs\rapidxml;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\extlibs\rapidxml\rapidxml;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\extlibs\xatlas;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\extlibs\xatlas\xatlas;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\extlibs\xatlas\xatlas\source\xatlas;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\.;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\CMakeFiles\db0d2edefbcefd1343b2300dceb3deb2\sibr_renderer_install.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">run the installation only for sibr_renderer</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -DBUILD_TYPE=$(Configuration) -DCOMPONENT=sibr_renderer_install -P E:/PhD/gaussian_VR/VRSplat/SIBR_viewers/cmake_install.cmake
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\AddShadowRenderer.cpp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\AddShadowRenderer.hpp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\BinaryMeshRenderer.cpp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\BinaryMeshRenderer.hpp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\BlurRenderer.cpp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\BlurRenderer.hpp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\ColoredMeshRenderer.cpp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\ColoredMeshRenderer.hpp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\Config.hpp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\CopyRenderer.cpp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\CopyRenderer.hpp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\DepthRenderer.cpp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\DepthRenderer.hpp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\NormalRenderer.cpp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\NormalRenderer.hpp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\PointBasedRenderer.cpp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\PointBasedRenderer.hpp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\PoissonRenderer.cpp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\PoissonRenderer.hpp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\PositionRender.cpp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\PositionRender.hpp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\RenderMaskHolder.cpp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\RenderMaskHolder.hpp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\ShadowMapRenderer.cpp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\ShadowMapRenderer.hpp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\TexturedMeshRenderer.cpp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\TexturedMeshRenderer.hpp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\addshadow.frag;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\blur.frag;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\colored_mesh.frag;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\colored_mesh.vert;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\copy.frag;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\copy_depth.frag;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\depthRenderer.fp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\depthRenderer.vp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\emotive_relight.frag;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\emotive_relight.vert;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\hdrEnvMap.frag;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\hdrEnvMap.vert;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\longlat.gp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\longlat.vp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\longlatColor.fp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\longlatDepth.fp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\noproj.vert;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\normalRenderer.fp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\normalRenderer.vp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\normalRendererGen.gp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\normalRendererGen.vp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\poisson_diverg.frag;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\poisson_interp.frag;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\poisson_jacobi.frag;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\poisson_restrict.frag;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\positionReflectedDirRenderer.frag;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\positionReflectedDirRenderer.vert;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\positionRenderer.frag;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\positionRenderer.vert;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\shadowMapRenderer.fp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\shadowMapRenderer.vp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\texture-invert.frag;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\texture.frag;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\texture.vert;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\textured_mesh.frag;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\textured_mesh.vert;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\textured_mesh_flipY.vert;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\CMakeFiles\sibr_renderer_install</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</VerifyInputsAndOutputsExist>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">run the installation only for sibr_renderer</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -DBUILD_TYPE=$(Configuration) -DCOMPONENT=sibr_renderer_install -P E:/PhD/gaussian_VR/VRSplat/SIBR_viewers/cmake_install.cmake
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\AddShadowRenderer.cpp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\AddShadowRenderer.hpp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\BinaryMeshRenderer.cpp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\BinaryMeshRenderer.hpp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\BlurRenderer.cpp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\BlurRenderer.hpp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\ColoredMeshRenderer.cpp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\ColoredMeshRenderer.hpp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\Config.hpp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\CopyRenderer.cpp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\CopyRenderer.hpp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\DepthRenderer.cpp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\DepthRenderer.hpp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\NormalRenderer.cpp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\NormalRenderer.hpp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\PointBasedRenderer.cpp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\PointBasedRenderer.hpp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\PoissonRenderer.cpp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\PoissonRenderer.hpp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\PositionRender.cpp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\PositionRender.hpp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\RenderMaskHolder.cpp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\RenderMaskHolder.hpp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\ShadowMapRenderer.cpp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\ShadowMapRenderer.hpp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\TexturedMeshRenderer.cpp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\TexturedMeshRenderer.hpp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\addshadow.frag;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\blur.frag;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\colored_mesh.frag;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\colored_mesh.vert;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\copy.frag;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\copy_depth.frag;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\depthRenderer.fp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\depthRenderer.vp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\emotive_relight.frag;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\emotive_relight.vert;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\hdrEnvMap.frag;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\hdrEnvMap.vert;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\longlat.gp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\longlat.vp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\longlatColor.fp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\longlatDepth.fp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\noproj.vert;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\normalRenderer.fp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\normalRenderer.vp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\normalRendererGen.gp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\normalRendererGen.vp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\poisson_diverg.frag;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\poisson_interp.frag;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\poisson_jacobi.frag;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\poisson_restrict.frag;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\positionReflectedDirRenderer.frag;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\positionReflectedDirRenderer.vert;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\positionRenderer.frag;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\positionRenderer.vert;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\shadowMapRenderer.fp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\shadowMapRenderer.vp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\texture-invert.frag;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\texture.frag;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\texture.vert;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\textured_mesh.frag;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\textured_mesh.vert;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\textured_mesh_flipY.vert;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\CMakeFiles\sibr_renderer_install</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</VerifyInputsAndOutputsExist>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">run the installation only for sibr_renderer</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -DBUILD_TYPE=$(Configuration) -DCOMPONENT=sibr_renderer_install -P E:/PhD/gaussian_VR/VRSplat/SIBR_viewers/cmake_install.cmake
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\AddShadowRenderer.cpp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\AddShadowRenderer.hpp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\BinaryMeshRenderer.cpp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\BinaryMeshRenderer.hpp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\BlurRenderer.cpp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\BlurRenderer.hpp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\ColoredMeshRenderer.cpp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\ColoredMeshRenderer.hpp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\Config.hpp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\CopyRenderer.cpp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\CopyRenderer.hpp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\DepthRenderer.cpp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\DepthRenderer.hpp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\NormalRenderer.cpp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\NormalRenderer.hpp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\PointBasedRenderer.cpp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\PointBasedRenderer.hpp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\PoissonRenderer.cpp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\PoissonRenderer.hpp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\PositionRender.cpp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\PositionRender.hpp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\RenderMaskHolder.cpp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\RenderMaskHolder.hpp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\ShadowMapRenderer.cpp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\ShadowMapRenderer.hpp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\TexturedMeshRenderer.cpp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\TexturedMeshRenderer.hpp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\addshadow.frag;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\blur.frag;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\colored_mesh.frag;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\colored_mesh.vert;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\copy.frag;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\copy_depth.frag;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\depthRenderer.fp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\depthRenderer.vp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\emotive_relight.frag;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\emotive_relight.vert;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\hdrEnvMap.frag;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\hdrEnvMap.vert;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\longlat.gp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\longlat.vp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\longlatColor.fp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\longlatDepth.fp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\noproj.vert;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\normalRenderer.fp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\normalRenderer.vp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\normalRendererGen.gp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\normalRendererGen.vp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\poisson_diverg.frag;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\poisson_interp.frag;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\poisson_jacobi.frag;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\poisson_restrict.frag;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\positionReflectedDirRenderer.frag;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\positionReflectedDirRenderer.vert;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\positionRenderer.frag;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\positionRenderer.vert;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\shadowMapRenderer.fp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\shadowMapRenderer.vp;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\texture-invert.frag;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\texture.frag;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\texture.vert;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\textured_mesh.frag;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\textured_mesh.vert;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\shaders\textured_mesh_flipY.vert;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\CMakeFiles\sibr_renderer_install</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</VerifyInputsAndOutputsExist>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\CMakeLists.txt">
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule E:/PhD/gaussian_VR/VRSplat/SIBR_viewers/src/core/renderer/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SE:/PhD/gaussian_VR/VRSplat/SIBR_viewers -BE:/PhD/gaussian_VR/VRSplat/SIBR_viewers --check-stamp-file E:/PhD/gaussian_VR/VRSplat/SIBR_viewers/src/core/renderer/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\cmake\windows\install_runtime.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule E:/PhD/gaussian_VR/VRSplat/SIBR_viewers/src/core/renderer/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SE:/PhD/gaussian_VR/VRSplat/SIBR_viewers -BE:/PhD/gaussian_VR/VRSplat/SIBR_viewers --check-stamp-file E:/PhD/gaussian_VR/VRSplat/SIBR_viewers/src/core/renderer/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\cmake\windows\install_runtime.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule E:/PhD/gaussian_VR/VRSplat/SIBR_viewers/src/core/renderer/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SE:/PhD/gaussian_VR/VRSplat/SIBR_viewers -BE:/PhD/gaussian_VR/VRSplat/SIBR_viewers --check-stamp-file E:/PhD/gaussian_VR/VRSplat/SIBR_viewers/src/core/renderer/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\cmake\windows\install_runtime.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\CMakeFiles\sibr_renderer_install">
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\ZERO_CHECK.vcxproj">
+      <Project>{58CFAD28-94C0-392B-B0D2-7E35D888D9B9}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\sibr_renderer.vcxproj">
+      <Project>{EDB58399-74E6-322D-BD9A-C7F037ECB9DC}</Project>
+      <Name>sibr_renderer</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\CUDA 12.0.targets" />
+  </ImportGroup>
+</Project>

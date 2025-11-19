@@ -1,0 +1,5 @@
+﻿  PointBasedView.cpp
+  TexturedMeshView.cpp
+  LINK : E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\install\bin\sibr_basic_d.dll not found or not built by the last incremental link; performing full link
+     Creating library E:/PhD/gaussian_VR/VRSplat/SIBR_viewers/install/lib/sibr_basic_d.lib and object E:/PhD/gaussian_VR/VRSplat/SIBR_viewers/install/lib/sibr_basic_d.exp
+  sibr_basic.vcxproj -> E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\install\bin\sibr_basic_d.dll

@@ -1,0 +1,26 @@
+--- Original GaussianView.cpp
++++ Fixed GaussianView.cpp
+@@ -623,8 +623,21 @@
+                                        const int mask_size = (tileW * tileH + 31) / 32 * 4;
+                                        const int mask_sum_size = (tileW + 1) * (tileH + 1) * 4;
+
+-                                       CUDA_SAFE_CALL_ALWAYS(cudaMemcpy(vismask_cuda, eye.visibilityMask(fullres).first, mask_size, cudaMemcpyHostToDevice));
+-                                       CUDA_SAFE_CALL_ALWAYS(cudaMemcpy(vismasksum_cuda, eye.visibilityMask(fullres).second, mask_sum_size, cudaMemcpyHostToDevice));
++                                       // VR-safe memory copy with error handling
++                                       auto visMask = eye.visibilityMask(fullres);
++                                       if (visMask.first != nullptr && visMask.second != nullptr) {
++                                           cudaError_t err1 = cudaMemcpy(vismask_cuda, visMask.first, mask_size, cudaMemcpyHostToDevice);
++                                           cudaError_t err2 = cudaMemcpy(vismasksum_cuda, visMask.second, mask_sum_size, cudaMemcpyHostToDevice);
++                                           
++                                           if (err1 != cudaSuccess || err2 != cudaSuccess) {
++                                               SIBR_LOG << "CUDA memcpy failed during VR rendering, skipping visibility mask update" << std::endl;
++                                               // Continue without updating visibility mask rather than crashing
++                                               return;
++                                           }
++                                       } else {
++                                           SIBR_LOG << "Visibility mask pointers are null during VR state transition, skipping" << std::endl;
++                                           return;
++                                       }
+                                };
+
+                                uploadVisibilityMask(fullres);

@@ -1,0 +1,6 @@
+# CMake generation dependency list for this directory.
+C:/Program Files/CMake/share/cmake-4.0/Modules/InstallRequiredSystemLibraries.cmake
+E:/PhD/gaussian_VR/VRSplat/SIBR_viewers/cmake/windows/MSVCsetUserCommand.cmake
+E:/PhD/gaussian_VR/VRSplat/SIBR_viewers/cmake/windows/install_runtime.cmake
+E:/PhD/gaussian_VR/VRSplat/SIBR_viewers/cmake/windows/parse_arguments_multi.cmake
+E:/PhD/gaussian_VR/VRSplat/SIBR_viewers/src/projects/gaussianviewer/apps/gaussianViewer/CMakeLists.txt

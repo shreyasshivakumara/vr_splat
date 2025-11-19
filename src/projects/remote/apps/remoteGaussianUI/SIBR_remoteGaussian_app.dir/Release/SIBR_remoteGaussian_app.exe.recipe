@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project>
+  <ProjectOutputs>
+    <ProjectOutput>
+      <FullPath>E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\x64\Release\ZERO_CHECK</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\graphics\x64\Release\sibr_graphics_resources</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\install\bin\sibr_system.dll</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\install\bin\sibr_graphics.dll</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\install\bin\xatlas.dll</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\install\bin\sibr_assets.dll</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\install\bin\sibr_raycaster.dll</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\x64\Release\sibr_renderer_shaders</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\install\bin\sibr_scene.dll</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\install\bin\sibr_video.dll</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\view\x64\Release\sibr_view_shaders</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\install\bin\sibr_view.dll</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\install\bin\sibr_renderer.dll</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\install\bin\sibr_basic.dll</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\install\bin\sibr_remote.dll</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\install\bin\SIBR_remoteGaussian_app.exe</FullPath>
+    </ProjectOutput>
+  </ProjectOutputs>
+  <ContentFiles />
+  <SatelliteDlls />
+  <NonRecipeFileRefs />
+</Project>

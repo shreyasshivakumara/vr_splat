@@ -13,6 +13,7 @@
 #pragma once
 
 # include <array>
+# include <vector>
 
 //#define GLEW_STATIC
 #include <GL/glew.h>
@@ -407,6 +408,20 @@ namespace sibr
 			_mousePrevPos = _mousePos;
 			_mouseScroll = 0.0;
 		}
+		/** Simple gamepad/joystick state (first device). */
+		struct GamepadState {
+			bool present = false;
+			std::vector<float> axes; ///< raw axes values [-1..1]
+			std::vector<unsigned char> buttons; ///< button states
+		};
+
+		/** Return cached gamepad state (index currently unused, only first gamepad supported). */
+		const GamepadState& gamepad(int id = 0) const {
+			(void)id;
+			return _gamepad;
+		}
+
+		GamepadState    _gamepad; ///< Cached joystick/gamepad state (GLFW)
 
 		/** \return the scroll amount along the vertical axis. */
 		double			mouseScroll( void ) const {

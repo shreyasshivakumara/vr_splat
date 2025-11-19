@@ -1,0 +1,37 @@
+# CMake generation dependency list for this directory.
+C:/Program Files/CMake/share/cmake-4.0/Modules/CMakeFindDependencyMacro.cmake
+C:/Program Files/CMake/share/cmake-4.0/Modules/CMakeParseImplicitLinkInfo.cmake
+C:/Program Files/CMake/share/cmake-4.0/Modules/CheckCSourceCompiles.cmake
+C:/Program Files/CMake/share/cmake-4.0/Modules/CheckIncludeFile.cmake
+C:/Program Files/CMake/share/cmake-4.0/Modules/CheckLibraryExists.cmake
+C:/Program Files/CMake/share/cmake-4.0/Modules/ExternalProject/shared_internal_commands.cmake
+C:/Program Files/CMake/share/cmake-4.0/Modules/FetchContent.cmake
+C:/Program Files/CMake/share/cmake-4.0/Modules/FindBoost.cmake
+C:/Program Files/CMake/share/cmake-4.0/Modules/FindGLEW.cmake
+C:/Program Files/CMake/share/cmake-4.0/Modules/FindOpenGL.cmake
+C:/Program Files/CMake/share/cmake-4.0/Modules/FindOpenMP.cmake
+C:/Program Files/CMake/share/cmake-4.0/Modules/FindPackageHandleStandardArgs.cmake
+C:/Program Files/CMake/share/cmake-4.0/Modules/FindPackageMessage.cmake
+C:/Program Files/CMake/share/cmake-4.0/Modules/FindThreads.cmake
+C:/Program Files/CMake/share/cmake-4.0/Modules/Internal/CheckSourceCompiles.cmake
+C:/Program Files/CMake/share/cmake-4.0/Modules/SelectLibraryConfigurations.cmake
+E:/PhD/gaussian_VR/VRSplat/SIBR_viewers/cmake/windows/Modules/FindASSIMP.cmake
+E:/PhD/gaussian_VR/VRSplat/SIBR_viewers/cmake/windows/Modules/FindFFMPEG.cmake
+E:/PhD/gaussian_VR/VRSplat/SIBR_viewers/cmake/windows/Win3rdParty.cmake
+E:/PhD/gaussian_VR/VRSplat/SIBR_viewers/cmake/windows/dependencies.cmake
+E:/PhD/gaussian_VR/VRSplat/SIBR_viewers/cmake/windows/downloadAndExtractZipFile.cmake
+E:/PhD/gaussian_VR/VRSplat/SIBR_viewers/cmake/windows/git_describe.cmake
+E:/PhD/gaussian_VR/VRSplat/SIBR_viewers/cmake/windows/include_once.cmake
+E:/PhD/gaussian_VR/VRSplat/SIBR_viewers/cmake/windows/parse_arguments_multi.cmake
+E:/PhD/gaussian_VR/VRSplat/SIBR_viewers/cmake/windows/sibr_library.cmake
+E:/PhD/gaussian_VR/VRSplat/SIBR_viewers/extlibs/opencv/opencv-4.5.0/build/OpenCVConfig-version.cmake
+E:/PhD/gaussian_VR/VRSplat/SIBR_viewers/extlibs/opencv/opencv-4.5.0/build/OpenCVConfig.cmake
+E:/PhD/gaussian_VR/VRSplat/SIBR_viewers/extlibs/opencv/opencv-4.5.0/build/x64/vc16/lib/OpenCVConfig.cmake
+E:/PhD/gaussian_VR/VRSplat/SIBR_viewers/extlibs/opencv/opencv-4.5.0/build/x64/vc16/lib/OpenCVModules-debug.cmake
+E:/PhD/gaussian_VR/VRSplat/SIBR_viewers/extlibs/opencv/opencv-4.5.0/build/x64/vc16/lib/OpenCVModules-release.cmake
+E:/PhD/gaussian_VR/VRSplat/SIBR_viewers/extlibs/opencv/opencv-4.5.0/build/x64/vc16/lib/OpenCVModules.cmake
+E:/PhD/gaussian_VR/VRSplat/SIBR_viewers/extlibs/openxr/openxr_loader_windows-1.0.29/OpenXRConfig.cmake
+E:/PhD/gaussian_VR/VRSplat/SIBR_viewers/extlibs/openxr/openxr_loader_windows-1.0.29/OpenXRConfigVersion.cmake
+E:/PhD/gaussian_VR/VRSplat/SIBR_viewers/extlibs/openxr/openxr_loader_windows-1.0.29/OpenXRTargets-relwithdebinfo.cmake
+E:/PhD/gaussian_VR/VRSplat/SIBR_viewers/extlibs/openxr/openxr_loader_windows-1.0.29/OpenXRTargets.cmake
+E:/PhD/gaussian_VR/VRSplat/SIBR_viewers/src/CMakeLists.txt

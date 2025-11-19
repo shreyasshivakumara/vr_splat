@@ -1,0 +1,8 @@
+﻿  main.cpp
+E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\projects\remote\apps\remoteGaussianUI\main.cpp(71,40): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\projects\remote\apps\remoteGaussianUI\main.cpp(74,40): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\projects\remote\apps\remoteGaussianUI\main.cpp(80,37): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\projects\remote\apps\remoteGaussianUI\main.cpp(81,39): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\projects\remote\apps\remoteGaussianUI\main.cpp(52,25): warning C4101: 'ex': unreferenced local variable
+  LINK : E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\install\bin\SIBR_remoteGaussian_app_d.exe not found or not built by the last incremental link; performing full link
+  SIBR_remoteGaussian_app.vcxproj -> E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\install\bin\SIBR_remoteGaussian_app_d.exe

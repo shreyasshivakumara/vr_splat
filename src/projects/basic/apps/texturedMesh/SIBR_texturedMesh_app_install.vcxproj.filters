@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\CMakeFiles\d67e65305d06a150318b0484f9a6e0ee\SIBR_texturedMesh_app_install.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\projects\basic\apps\texturedMesh\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\projects\basic\apps\texturedMesh\CMakeFiles\SIBR_texturedMesh_app_install" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{82606B91-CFE4-3DB2-8988-F27E4E6D2B4D}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

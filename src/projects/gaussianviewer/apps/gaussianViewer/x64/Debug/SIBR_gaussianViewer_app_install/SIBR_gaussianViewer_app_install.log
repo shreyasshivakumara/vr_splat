@@ -1,0 +1,22 @@
+﻿  run the installation only for SIBR_gaussianViewer_app
+  -- Install configuration: "Debug"
+  -- Install component: "SIBR_gaussianViewer_app_install"
+  -- Up-to-date: E:/PhD/gaussian_VR/VRSplat/SIBR_viewers/install/bin/msvcp140.dll
+  -- Up-to-date: E:/PhD/gaussian_VR/VRSplat/SIBR_viewers/install/bin/msvcp140_1.dll
+  -- Up-to-date: E:/PhD/gaussian_VR/VRSplat/SIBR_viewers/install/bin/msvcp140_2.dll
+  -- Up-to-date: E:/PhD/gaussian_VR/VRSplat/SIBR_viewers/install/bin/msvcp140_atomic_wait.dll
+  -- Up-to-date: E:/PhD/gaussian_VR/VRSplat/SIBR_viewers/install/bin/msvcp140_codecvt_ids.dll
+  -- Up-to-date: E:/PhD/gaussian_VR/VRSplat/SIBR_viewers/install/bin/vcruntime140_1.dll
+  -- Up-to-date: E:/PhD/gaussian_VR/VRSplat/SIBR_viewers/install/bin/vcruntime140.dll
+  -- Up-to-date: E:/PhD/gaussian_VR/VRSplat/SIBR_viewers/install/bin/concrt140.dll
+  -- Installing SIBR_gaussianViewer_app dependencies...
+  CMake Warning at cmake_install.cmake:301 (message):
+    There were unresolved dependencies for executable : "nppig64_12.dll"!
+  Call Stack (most recent call first):
+    E:/PhD/gaussian_VR/VRSplat/SIBR_viewers/src/projects/gaussianviewer/apps/cmake_install.cmake:37 (include)
+    E:/PhD/gaussian_VR/VRSplat/SIBR_viewers/src/projects/gaussianviewer/cmake_install.cmake:37 (include)
+    E:/PhD/gaussian_VR/VRSplat/SIBR_viewers/src/cmake_install.cmake:122 (include)
+    E:/PhD/gaussian_VR/VRSplat/SIBR_viewers/cmake_install.cmake:37 (include)
+  
+  
+  Building Custom Rule E:/PhD/gaussian_VR/VRSplat/SIBR_viewers/src/projects/gaussianviewer/apps/gaussianViewer/CMakeLists.txt

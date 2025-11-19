@@ -94,6 +94,11 @@ namespace sibr {
 		*/
 		void moveUsingWASD( const sibr::Input& input, float deltaTime);
 
+		/** Update camera pose based on gamepad/joystick.
+		 * Left stick: move X/Z, Right stick: rotate yaw/pitch
+		 */
+		void moveUsingGamepad(const sibr::Input& input, float deltaTime);
+
 		/** Update camera pose based on mouse.
 		\param input user input
 		\param deltaTime elapsed time

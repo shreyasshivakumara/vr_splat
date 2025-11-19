@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project>
+  <ProjectOutputs>
+    <ProjectOutput>
+      <FullPath>E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\x64\Debug\ZERO_CHECK</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\x64\Debug\sibr_graphics_resources</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\install\bin\sibr_system_d.dll</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\install\bin\sibr_graphics_d.dll</FullPath>
+    </ProjectOutput>
+  </ProjectOutputs>
+  <ContentFiles />
+  <SatelliteDlls />
+  <NonRecipeFileRefs />
+</Project>

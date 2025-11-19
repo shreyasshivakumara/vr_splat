@@ -1,0 +1,22 @@
+﻿  DatasetView.cpp
+  FPSCamera.cpp
+  ICameraHandler.cpp
+  ImageView.cpp
+  ImagesGrid.cpp
+  InteractiveCameraHandler.cpp
+  MultiMeshManager.cpp
+  MultiViewManager.cpp
+  Orbit.cpp
+  RenderingMode.cpp
+  SceneDebugView.cpp
+  TrackBall.cpp
+  ViewBase.cpp
+  Interface.cpp
+  InterfaceUtils.cpp
+  MeshViewer.cpp
+E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\view\MultiViewManager.cpp(365,58): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\view\InteractiveCameraHandler.cpp(113,22): warning C4244: 'argument': conversion from 'unsigned __int64' to 'const float', possible loss of data
+E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\view\InteractiveCameraHandler.cpp(251,36): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  LINK : E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\install\bin\sibr_view_d.dll not found or not built by the last incremental link; performing full link
+     Creating library E:/PhD/gaussian_VR/VRSplat/SIBR_viewers/install/lib/sibr_view_d.lib and object E:/PhD/gaussian_VR/VRSplat/SIBR_viewers/install/lib/sibr_view_d.exp
+  sibr_view.vcxproj -> E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\install\bin\sibr_view_d.dll

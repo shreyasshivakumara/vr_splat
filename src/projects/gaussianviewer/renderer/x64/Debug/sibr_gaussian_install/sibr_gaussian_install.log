@@ -1,0 +1,4 @@
+﻿  run the installation only for sibr_gaussian
+  -- Install configuration: "Debug"
+  -- Install component: "sibr_gaussian_install"
+  Building Custom Rule E:/PhD/gaussian_VR/VRSplat/SIBR_viewers/src/projects/gaussianviewer/renderer/CMakeLists.txt

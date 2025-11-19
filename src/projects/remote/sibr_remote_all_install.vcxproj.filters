@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\CMakeFiles\785692c3668495742d3f71a9d16fda82\sibr_remote_all_install.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\projects\remote\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\projects\remote\CMakeFiles\sibr_remote_all_install" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{82606B91-CFE4-3DB2-8988-F27E4E6D2B4D}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

@@ -26,8 +26,46 @@ namespace sibr
 
 	/*static*/ void		Input::poll( void )
 	{
-		sibr::Input::global().swapStates();
-		glfwPollEvents();
+	sibr::Input::global().swapStates();
+	glfwPollEvents();
+
+		// Poll first joystick / gamepad (GLFW_JOYSTICK_1)
+		Input & g = sibr::Input::global();
+		int jid = GLFW_JOYSTICK_1;
+		static bool prevPresent = false;
+		if (glfwJoystickPresent(jid)) {
+			int count = 0;
+			const float* axes = glfwGetJoystickAxes(jid, &count);
+			if (axes && count > 0) {
+				g._gamepad.present = true;
+				g._gamepad.axes.assign(axes, axes + count);
+			} else {
+				g._gamepad.present = true;
+				g._gamepad.axes.clear();
+			}
+
+			int btnCount = 0;
+			const unsigned char* buttons = glfwGetJoystickButtons(jid, &btnCount);
+			if (buttons && btnCount > 0) {
+				g._gamepad.buttons.assign(buttons, buttons + btnCount);
+			} else {
+				g._gamepad.buttons.clear();
+			}
+		} else {
+			g._gamepad.present = false;
+			g._gamepad.axes.clear();
+			g._gamepad.buttons.clear();
+		}
+
+		// Log presence change once so user can see detection status
+		if (g._gamepad.present != prevPresent) {
+			prevPresent = g._gamepad.present;
+			if (g._gamepad.present) {
+				std::cout << "[Input] Gamepad connected. axes=" << g._gamepad.axes.size() << " buttons=" << g._gamepad.buttons.size() << std::endl;
+			} else {
+				std::cout << "[Input] Gamepad disconnected." << std::endl;
+			}
+		}
 	}
 
 	Input Input::subInput(const sibr::Input & global, const sibr::Viewport & viewport, const bool mouseOutsideDisablesKeyboard)

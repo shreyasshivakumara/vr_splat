@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project>
+  <ProjectOutputs>
+    <ProjectOutput>
+      <FullPath>E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\x64\Release\ZERO_CHECK</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\install\bin\mrf.dll</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\graphics\x64\Release\sibr_graphics_resources</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\install\bin\sibr_system.dll</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\install\bin\sibr_graphics.dll</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\install\bin\xatlas.dll</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\install\bin\sibr_assets.dll</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\install\bin\sibr_raycaster.dll</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\install\bin\sibr_imgproc.dll</FullPath>
+    </ProjectOutput>
+  </ProjectOutputs>
+  <ContentFiles />
+  <SatelliteDlls />
+  <NonRecipeFileRefs />
+</Project>

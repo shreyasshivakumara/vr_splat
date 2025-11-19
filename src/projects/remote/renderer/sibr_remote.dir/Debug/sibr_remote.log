@@ -1,0 +1,10 @@
+﻿  RemotePointView.cpp
+  Please define _WIN32_WINNT or _WIN32_WINDOWS appropriately. For example:
+  - add -D_WIN32_WINNT=0x0601 to the compiler command line; or
+  - add _WIN32_WINNT=0x0601 to your project's Preprocessor Definitions.
+  Assuming _WIN32_WINNT=0x0601 (i.e. Windows 7 target).
+E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\projects\remote\renderer\RemotePointView.cpp(73,45): warning C4267: 'initializing': conversion from 'size_t' to 'uint32_t', possible loss of data
+E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\projects\remote\renderer\RemotePointView.cpp(148,25): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  LINK : E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\install\bin\sibr_remote_d.dll not found or not built by the last incremental link; performing full link
+     Creating library E:/PhD/gaussian_VR/VRSplat/SIBR_viewers/install/lib/sibr_remote_d.lib and object E:/PhD/gaussian_VR/VRSplat/SIBR_viewers/install/lib/sibr_remote_d.exp
+  sibr_remote.vcxproj -> E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\install\bin\sibr_remote_d.dll

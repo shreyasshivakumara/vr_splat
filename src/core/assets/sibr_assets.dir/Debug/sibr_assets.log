@@ -1,0 +1,4 @@
+﻿  CameraRecorder.cpp
+  LINK : E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\install\bin\sibr_assets_d.dll not found or not built by the last incremental link; performing full link
+     Creating library E:/PhD/gaussian_VR/VRSplat/SIBR_viewers/install/lib/sibr_assets_d.lib and object E:/PhD/gaussian_VR/VRSplat/SIBR_viewers/install/lib/sibr_assets_d.exp
+  sibr_assets.vcxproj -> E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\install\bin\sibr_assets_d.dll

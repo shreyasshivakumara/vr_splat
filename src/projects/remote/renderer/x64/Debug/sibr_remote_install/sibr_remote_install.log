@@ -1,0 +1,4 @@
+﻿  run the installation only for sibr_remote
+  -- Install configuration: "Debug"
+  -- Install component: "sibr_remote_install"
+  Building Custom Rule E:/PhD/gaussian_VR/VRSplat/SIBR_viewers/src/projects/remote/renderer/CMakeLists.txt

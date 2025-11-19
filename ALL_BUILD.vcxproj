@@ -1,0 +1,240 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ResolveNugetPackages>false</ResolveNugetPackages>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{6770791D-7F3E-3FCB-BBB8-D7A4CF039111}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.22621.0</WindowsTargetPlatformVersion>
+    <Platform>x64</Platform>
+    <ProjectName>ALL_BUILD</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\CUDA 12.0.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\CMakeLists.txt">
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule E:/PhD/gaussian_VR/VRSplat/SIBR_viewers/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SE:/PhD/gaussian_VR/VRSplat/SIBR_viewers -BE:/PhD/gaussian_VR/VRSplat/SIBR_viewers --check-stamp-file E:/PhD/gaussian_VR/VRSplat/SIBR_viewers/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeCheckCompilerFlagCommonPatterns.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CheckCXXCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CheckCXXSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\FindGit.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Internal\CMakeCLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Internal\CMakeCXXLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Internal\CMakeCommonLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Internal\CheckCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Internal\CheckFlagCommonConfig.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Internal\CheckSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Linker\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Linker\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Linker\MSVC.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Linker\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Linker\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Linker\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\WindowsPaths.cmake;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\CMakeFiles\4.0.0\CMakeCCompiler.cmake;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\CMakeFiles\4.0.0\CMakeCXXCompiler.cmake;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\CMakeFiles\4.0.0\CMakeRCCompiler.cmake;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\CMakeFiles\4.0.0\CMakeSystem.cmake;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\cmake\windows\cmake_policies.cmake;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\cmake\windows\git_describe.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule E:/PhD/gaussian_VR/VRSplat/SIBR_viewers/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SE:/PhD/gaussian_VR/VRSplat/SIBR_viewers -BE:/PhD/gaussian_VR/VRSplat/SIBR_viewers --check-stamp-file E:/PhD/gaussian_VR/VRSplat/SIBR_viewers/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeCheckCompilerFlagCommonPatterns.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CheckCXXCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CheckCXXSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\FindGit.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Internal\CMakeCLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Internal\CMakeCXXLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Internal\CMakeCommonLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Internal\CheckCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Internal\CheckFlagCommonConfig.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Internal\CheckSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Linker\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Linker\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Linker\MSVC.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Linker\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Linker\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Linker\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\WindowsPaths.cmake;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\CMakeFiles\4.0.0\CMakeCCompiler.cmake;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\CMakeFiles\4.0.0\CMakeCXXCompiler.cmake;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\CMakeFiles\4.0.0\CMakeRCCompiler.cmake;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\CMakeFiles\4.0.0\CMakeSystem.cmake;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\cmake\windows\cmake_policies.cmake;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\cmake\windows\git_describe.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule E:/PhD/gaussian_VR/VRSplat/SIBR_viewers/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SE:/PhD/gaussian_VR/VRSplat/SIBR_viewers -BE:/PhD/gaussian_VR/VRSplat/SIBR_viewers --check-stamp-file E:/PhD/gaussian_VR/VRSplat/SIBR_viewers/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeCheckCompilerFlagCommonPatterns.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CheckCXXCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CheckCXXSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\FindGit.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Internal\CMakeCLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Internal\CMakeCXXLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Internal\CMakeCommonLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Internal\CheckCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Internal\CheckFlagCommonConfig.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Internal\CheckSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Linker\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Linker\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Linker\MSVC.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Linker\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Linker\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Linker\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\WindowsPaths.cmake;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\CMakeFiles\4.0.0\CMakeCCompiler.cmake;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\CMakeFiles\4.0.0\CMakeCXXCompiler.cmake;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\CMakeFiles\4.0.0\CMakeRCCompiler.cmake;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\CMakeFiles\4.0.0\CMakeSystem.cmake;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\cmake\windows\cmake_policies.cmake;E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\cmake\windows\git_describe.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\ZERO_CHECK.vcxproj">
+      <Project>{58CFAD28-94C0-392B-B0D2-7E35D888D9B9}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\extlibs\CudaRasterizer\build\CudaRasterizer.vcxproj">
+      <Project>{ED5D9F87-2C5E-32D1-A24F-7930662DF1B9}</Project>
+      <Name>CudaRasterizer</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\PREBUILD.vcxproj">
+      <Project>{2312DBEE-286C-3D32-BA79-B9ACC93E09BF}</Project>
+      <Name>PREBUILD</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\projects\basic\apps\pointBased\SIBR_PointBased_app.vcxproj">
+      <Project>{DD627CE5-8AE0-395B-9ACA-3142FB549FB8}</Project>
+      <Name>SIBR_PointBased_app</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\projects\gaussianviewer\apps\gaussianViewer\SIBR_gaussianViewer_app.vcxproj">
+      <Project>{2E1CA382-BF70-34F8-B18D-DFCECABBD1F6}</Project>
+      <Name>SIBR_gaussianViewer_app</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\projects\remote\apps\remoteGaussianUI\SIBR_remoteGaussian_app.vcxproj">
+      <Project>{6ADB6353-A0A2-3E01-8D5F-B34B996DFEE0}</Project>
+      <Name>SIBR_remoteGaussian_app</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\projects\basic\apps\texturedMesh\SIBR_texturedMesh_app.vcxproj">
+      <Project>{A7C12A0B-5948-3332-B6AD-920D4B5EF899}</Project>
+      <Name>SIBR_texturedMesh_app</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\extlibs\imgui\build\imgui.vcxproj">
+      <Project>{7560CBDC-BEAD-328C-9DE6-7B1807B69147}</Project>
+      <Name>imgui</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\extlibs\mrf\build\mrf.vcxproj">
+      <Project>{64B6C94D-5049-3E29-9976-81B01BF57109}</Project>
+      <Name>mrf</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\assets\sibr_assets.vcxproj">
+      <Project>{401FC1B4-0667-3945-BE12-908F786CB4FE}</Project>
+      <Name>sibr_assets</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\projects\basic\renderer\sibr_basic.vcxproj">
+      <Project>{C502EE22-D550-30EA-9FF1-FDB3B1677E57}</Project>
+      <Name>sibr_basic</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\projects\gaussianviewer\renderer\sibr_gaussian.vcxproj">
+      <Project>{2F3652F4-6310-3ADF-A29E-E53D24C8882A}</Project>
+      <Name>sibr_gaussian</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\graphics\sibr_graphics.vcxproj">
+      <Project>{C0019842-F8B4-36D6-8ABC-BFB6DCF82ED4}</Project>
+      <Name>sibr_graphics</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\imgproc\sibr_imgproc.vcxproj">
+      <Project>{353AA84A-A1A3-3C0B-8817-DF80DA174E34}</Project>
+      <Name>sibr_imgproc</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\openxr\sibr_openxr.vcxproj">
+      <Project>{84956620-BE23-3330-89F0-596668620B5A}</Project>
+      <Name>sibr_openxr</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\raycaster\sibr_raycaster.vcxproj">
+      <Project>{EB5E4E2A-C57B-34B7-BDB3-C87CEE1E10A5}</Project>
+      <Name>sibr_raycaster</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\projects\remote\renderer\sibr_remote.vcxproj">
+      <Project>{8E853A37-C487-3E76-9981-F49AA93CD684}</Project>
+      <Name>sibr_remote</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\renderer\sibr_renderer.vcxproj">
+      <Project>{EDB58399-74E6-322D-BD9A-C7F037ECB9DC}</Project>
+      <Name>sibr_renderer</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\scene\sibr_scene.vcxproj">
+      <Project>{69E74FE9-9D93-34B3-B2CE-7E1952AA5015}</Project>
+      <Name>sibr_scene</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\system\sibr_system.vcxproj">
+      <Project>{542F599E-9967-3A40-8BC6-49C84AE77F53}</Project>
+      <Name>sibr_system</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\video\sibr_video.vcxproj">
+      <Project>{534BEFC5-E831-3A4A-B43F-E829B97CDCAA}</Project>
+      <Name>sibr_video</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\src\core\view\sibr_view.vcxproj">
+      <Project>{6E72B2F0-A5EE-3E22-AD56-963141C5F1A7}</Project>
+      <Name>sibr_view</Name>
+    </ProjectReference>
+    <ProjectReference Include="E:\PhD\gaussian_VR\VRSplat\SIBR_viewers\extlibs\xatlas\build\xatlas.vcxproj">
+      <Project>{3D5A4FD4-C436-382C-9A97-A3B4DE5BE281}</Project>
+      <Name>xatlas</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\CUDA 12.0.targets" />
+  </ImportGroup>
+</Project>

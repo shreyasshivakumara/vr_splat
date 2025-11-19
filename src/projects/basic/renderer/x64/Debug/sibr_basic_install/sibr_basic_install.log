@@ -1,0 +1,4 @@
+﻿  run the installation only for sibr_basic
+  -- Install configuration: "Debug"
+  -- Install component: "sibr_basic_install"
+  Building Custom Rule E:/PhD/gaussian_VR/VRSplat/SIBR_viewers/src/projects/basic/renderer/CMakeLists.txt
