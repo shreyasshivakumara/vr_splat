@@ -138,7 +138,8 @@ namespace sibr
                                     } else {
                                         // Standard stereo mode: use eye-specific parameters
                                         q = viewIndex == 0 ? modifiedCamera.rotation() : modifiedCamera.rightTransform().rotation();
-                                        pos = viewIndex == 0 ? modifiedCamera.position() : modifiedCamera.rightTransform().position();
+                                        // Apply controller movement offset to right eye as well
+                                        pos = viewIndex == 0 ? modifiedCamera.position() : (modifiedCamera.rightTransform().position() + m_cameraOffset);
                                     }
                                     
                                     float scaley = tan(fov.w()) - tan(fov.z());
