@@ -424,7 +424,7 @@ namespace sibr
         m_sessionCreateInfo.next = &graphicsBindingGL;
         m_sessionCreateInfo.systemId = m_systemId;
 
-        return createSession(m_sessionCreateInfo) && createReferenceSpace() && createSwapchain() && synchronizeSession();
+        return createSession(m_sessionCreateInfo) && createReferenceSpace() && createActions() && attachActionSet() && createSwapchain() && synchronizeSession();
     }
 
 #ifdef XR_USE_PLATFORM_XLIB
@@ -547,6 +547,99 @@ namespace sibr
             m_projectionViews[i].subImage.imageRect.extent.width = m_resolution.x();
             m_projectionViews[i].subImage.imageRect.extent.height = m_resolution.y();
         };
+
+        return true;
+    }
+
+    bool OpenXRHMD::createActions()
+    {
+        SIBR_LOG << "[OpenXR] Creating action set and actions..." << std::endl;
+        
+        // Create an action set for gameplay
+        XrActionSetCreateInfo actionSetInfo{XR_TYPE_ACTION_SET_CREATE_INFO};
+        strcpy(actionSetInfo.actionSetName, "gameplay");
+        strcpy(actionSetInfo.localizedActionSetName, "Gameplay");
+        actionSetInfo.priority = 0;
+        XrResult result = xrCreateActionSet(m_instance, &actionSetInfo, &m_actionSet);
+        if (!xrCheck(m_instance, result, "Failed to create action set"))
+            return false;
+
+        SIBR_LOG << "[OpenXR] Action set created successfully" << std::endl;
+
+        // Get paths for left and right hand
+        xrStringToPath(m_instance, "/user/hand/left", &m_handPaths[0]);
+        xrStringToPath(m_instance, "/user/hand/right", &m_handPaths[1]);
+
+        // Create a single thumbstick action that works for BOTH hands
+        // We'll query it separately for each hand to get left/right stick values
+        XrActionCreateInfo actionInfo{XR_TYPE_ACTION_CREATE_INFO};
+        actionInfo.actionType = XR_ACTION_TYPE_VECTOR2F_INPUT;
+        strcpy(actionInfo.actionName, "thumbstick");
+        strcpy(actionInfo.localizedActionName, "Thumbstick");
+        actionInfo.countSubactionPaths = 2;  // Both hands
+        actionInfo.subactionPaths = m_handPaths;
+        result = xrCreateAction(m_actionSet, &actionInfo, &m_moveAction);
+        if (!xrCheck(m_instance, result, "Failed to create thumbstick action"))
+            return false;
+
+        SIBR_LOG << "[OpenXR] Thumbstick action created for both hands" << std::endl;
+        
+        // We'll reuse m_moveAction for both queries (no need for separate m_rotateAction)
+        m_rotateAction = m_moveAction;
+
+        return true;
+    }
+
+    bool OpenXRHMD::attachActionSet()
+    {
+        SIBR_LOG << "[OpenXR] Attaching action set and suggesting bindings..." << std::endl;
+        
+        // Suggest bindings for Oculus Touch controllers (Meta Quest uses this profile)
+        XrPath oculusTouchPath;
+        XrResult result = xrStringToPath(m_instance, "/interaction_profiles/oculus/touch_controller", &oculusTouchPath);
+        if (!xrCheck(m_instance, result, "Failed to get Oculus Touch path"))
+        {
+            SIBR_WRG << "[OpenXR] Could not get Oculus Touch path" << std::endl;
+            return false;
+        }
+
+        // Get binding paths for both thumbsticks
+        XrPath leftThumbstickPath, rightThumbstickPath;
+        xrStringToPath(m_instance, "/user/hand/left/input/thumbstick", &leftThumbstickPath);
+        xrStringToPath(m_instance, "/user/hand/right/input/thumbstick", &rightThumbstickPath);
+
+        // Bind the single thumbstick action to BOTH left and right thumbsticks
+        XrActionSuggestedBinding bindings[2];
+        bindings[0].action = m_moveAction;  // Same action for both
+        bindings[0].binding = leftThumbstickPath;
+        bindings[1].action = m_moveAction;  // Same action for both
+        bindings[1].binding = rightThumbstickPath;
+
+        XrInteractionProfileSuggestedBinding suggestedBindings{XR_TYPE_INTERACTION_PROFILE_SUGGESTED_BINDING};
+        suggestedBindings.interactionProfile = oculusTouchPath;
+        suggestedBindings.suggestedBindings = bindings;
+        suggestedBindings.countSuggestedBindings = 2;
+
+        result = xrSuggestInteractionProfileBindings(m_instance, &suggestedBindings);
+        if (!xrCheck(m_instance, result, "Failed to suggest interaction profile bindings"))
+        {
+            SIBR_WRG << "[OpenXR] Could not suggest Oculus Touch bindings, controller input may not work" << std::endl;
+            // Continue anyway - might still work
+        }
+        else
+        {
+            SIBR_LOG << "[OpenXR] Successfully suggested Oculus Touch bindings for both thumbsticks" << std::endl;
+        }
+
+        // Attach action sets to session
+        XrSessionActionSetsAttachInfo attachInfo{XR_TYPE_SESSION_ACTION_SETS_ATTACH_INFO};
+        attachInfo.countActionSets = 1;
+        attachInfo.actionSets = &m_actionSet;
+        result = xrAttachSessionActionSets(m_session, &attachInfo);
+        if (!xrCheck(m_instance, result, "Failed to attach action sets"))
+            return false;
+        
+        SIBR_LOG << "[OpenXR] Action set attached to session successfully" << std::endl;
 
         return true;
     }
@@ -805,6 +898,9 @@ namespace sibr
         result = xrLocateViews(m_session, &view_locate_info, &view_state, m_viewCount, &m_viewCount, views);
         if (!xrCheck(m_instance, result, "Could not locate views"))
             return false;
+
+        // Poll controller actions after frame state is updated
+        pollActions();
 
         return true;
     }
@@ -1112,6 +1208,77 @@ namespace sibr
         result = xrGetVisibilityMaskKHR(m_session, m_viewType, viewIndex, XrVisibilityMaskTypeKHR::XR_VISIBILITY_MASK_TYPE_LINE_LOOP_KHR, &visibilityMask);
         if (!xrCheck(m_instance, result, "Failed to get visibility mask 2"))
             return;
+    }
+
+    bool OpenXRHMD::pollActions()
+    {
+        if (m_actionSet == XR_NULL_HANDLE)
+        {
+            static bool logged = false;
+            if (!logged) {
+                SIBR_LOG << "[OpenXR] pollActions: action set is NULL" << std::endl;
+                logged = true;
+            }
+            return false;
+        }
+
+        // Sync actions
+        XrActiveActionSet activeActionSet{m_actionSet, XR_NULL_PATH};
+        XrActionsSyncInfo syncInfo{XR_TYPE_ACTIONS_SYNC_INFO};
+        syncInfo.countActiveActionSets = 1;
+        syncInfo.activeActionSets = &activeActionSet;
+        XrResult result = xrSyncActions(m_session, &syncInfo);
+        if (!xrCheck(m_instance, result, "Failed to sync actions"))
+            return false;
+
+        // Get move thumbstick state (left hand)
+        XrActionStateVector2f leftStickState{XR_TYPE_ACTION_STATE_VECTOR2F};
+        XrActionStateGetInfo getInfo{XR_TYPE_ACTION_STATE_GET_INFO};
+        getInfo.action = m_moveAction;
+        getInfo.subactionPath = m_handPaths[0];  // Left hand
+        result = xrGetActionStateVector2f(m_session, &getInfo, &leftStickState);
+        if (xrCheck(m_instance, result, "") && leftStickState.isActive)
+        {
+            m_moveThumbstick = Eigen::Vector2f(leftStickState.currentState.x, leftStickState.currentState.y);
+            static int logCounter = 0;
+            if (logCounter++ % 120 == 0 && (std::abs(leftStickState.currentState.x) > 0.1f || std::abs(leftStickState.currentState.y) > 0.1f)) {
+                SIBR_LOG << "[OpenXR] LEFT thumbstick: (" << leftStickState.currentState.x << ", " << leftStickState.currentState.y << ")" << std::endl;
+            }
+        }
+        else
+        {
+            m_moveThumbstick = Eigen::Vector2f::Zero();
+        }
+
+        // Get rotate thumbstick state (right hand) - same action, different subaction path
+        XrActionStateVector2f rightStickState{XR_TYPE_ACTION_STATE_VECTOR2F};
+        getInfo.action = m_moveAction;  // Same action!
+        getInfo.subactionPath = m_handPaths[1];  // Right hand
+        result = xrGetActionStateVector2f(m_session, &getInfo, &rightStickState);
+        if (xrCheck(m_instance, result, "") && rightStickState.isActive)
+        {
+            m_rotateThumbstick = Eigen::Vector2f(rightStickState.currentState.x, rightStickState.currentState.y);
+            static int logCounter2 = 0;
+            if (logCounter2++ % 120 == 0 && (std::abs(rightStickState.currentState.x) > 0.1f || std::abs(rightStickState.currentState.y) > 0.1f)) {
+                SIBR_LOG << "[OpenXR] RIGHT thumbstick: (" << rightStickState.currentState.x << ", " << rightStickState.currentState.y << ")" << std::endl;
+            }
+        }
+        else
+        {
+            m_rotateThumbstick = Eigen::Vector2f::Zero();
+        }
+
+        return true;
+    }
+
+    Eigen::Vector2f OpenXRHMD::getMovementThumbstick() const
+    {
+        return m_moveThumbstick;
+    }
+
+    Eigen::Vector2f OpenXRHMD::getRotationThumbstick() const
+    {
+        return m_rotateThumbstick;
     }
 
 } /*namespace sibr*/

@@ -12,6 +12,7 @@
 #include <core/openxr/OpenXRRdrMode.hpp>
 #include <core/openxr/SwapchainImageRenderTarget.hpp>
 #include <fstream>
+#include <cmath>
 
 namespace sibr
 {
@@ -97,6 +98,10 @@ namespace sibr
             return;
         }
 
+        // Apply VR controller movement to the camera
+        sibr::Camera modifiedCamera = camera;
+        applyControllerMovement(modifiedCamera);
+
         const int w = m_openxrHmd->getResolution().x();
         const int h = m_openxrHmd->getResolution().y();
 
@@ -104,20 +109,20 @@ namespace sibr
         view.setResolution(sibr::Vector2i(w / m_downscaleResolution, h / m_downscaleResolution));
 
         // The callback is called for each single view (left view then right view) with the texture to render to
-        m_openxrHmd->submitFrame([this, w, h, &view, &camera, optDest](int viewIndex, uint32_t texture)
+        m_openxrHmd->submitFrame([this, w, h, &view, &modifiedCamera, optDest](int viewIndex, uint32_t texture)
                                  {
                                     OpenXRHMD::Eye eye = viewIndex == 0 ? OpenXRHMD::Eye::LEFT : OpenXRHMD::Eye::RIGHT;
 
                                     // Get FOV and camera parameters based on monocular mode
                                     auto fov = this->m_openxrHmd->getFieldOfView(eye);
-                                    auto q = camera.rotation();
-                                    auto pos = camera.position();
+                                    auto q = modifiedCamera.rotation();
+                                    auto pos = modifiedCamera.position();
                                     
                                     // In monocular mode, use center position between eyes for both views
                                     if (m_monocularMode) {
                                         // Calculate center position between left and right eye
-                                        auto leftPos = camera.position();
-                                        auto rightPos = camera.rightTransform().position();
+                                        auto leftPos = modifiedCamera.position();
+                                        auto rightPos = modifiedCamera.rightTransform().position();
                                         pos = (leftPos + rightPos) * 0.5f;
                                         
                                         // Use left eye FOV for both eyes (could also average FOVs)
@@ -132,8 +137,8 @@ namespace sibr
                                         }
                                     } else {
                                         // Standard stereo mode: use eye-specific parameters
-                                        q = viewIndex == 0 ? camera.rotation() : camera.rightTransform().rotation();
-                                        pos = viewIndex == 0 ? camera.position() : camera.rightTransform().position();
+                                        q = viewIndex == 0 ? modifiedCamera.rotation() : modifiedCamera.rightTransform().rotation();
+                                        pos = viewIndex == 0 ? modifiedCamera.position() : modifiedCamera.rightTransform().position();
                                     }
                                     
                                     float scaley = tan(fov.w()) - tan(fov.z());
@@ -144,8 +149,8 @@ namespace sibr
                                     Camera cam;
                                     cam.rotate(q);
                                     cam.position(pos);
-                                    cam.zfar(camera.zfar());
-                                    cam.znear(camera.znear());
+                                    cam.zfar(modifiedCamera.zfar());
+                                    cam.znear(modifiedCamera.znear());
 
                                     // all fov values are needed to calculate a correct perspective matrix
                                     cam.setAllFov(fov);
@@ -313,6 +318,25 @@ namespace sibr
         }
         ImGui::SameLine();
         ImGui::Text(m_monocularMode ? "[MONO]" : "[STEREO]");
+        ImGui::Separator();
+        
+        // VR Movement Controls
+        ImGui::Text("VR Controller Movement:");
+        ImGui::SliderFloat("Movement Speed", &m_moveSpeed, 0.001f, 1.0f, "%.4f");
+        if (ImGui::IsItemHovered())
+        {
+            ImGui::SetTooltip("Adjust movement speed for right thumbstick");
+        }
+        if (ImGui::Button("Reset Position Offset"))
+        {
+            m_cameraOffset = Eigen::Vector3f::Zero();
+            SIBR_LOG << "Camera position offset reset" << std::endl;
+        }
+        if (ImGui::IsItemHovered())
+        {
+            ImGui::SetTooltip("Reset accumulated movement to original camera position");
+        }
+        ImGui::Text("Current offset: (%.2f, %.2f, %.2f)", m_cameraOffset.x(), m_cameraOffset.y(), m_cameraOffset.z());
         ImGui::Separator();
         
         // Screenshot button
@@ -501,6 +525,57 @@ namespace sibr
         }
 
         return std::make_pair(mask, mask_sum);
+    }
+
+    void OpenXRRdrMode::applyControllerMovement(sibr::Camera &camera)
+    {
+        // Get thumbstick values from OpenXR HMD
+        Eigen::Vector2f moveStick = m_openxrHmd->getMovementThumbstick();
+        Eigen::Vector2f rotateStick = m_openxrHmd->getRotationThumbstick();
+        
+        static int logCounter = 0;
+        
+        // Log thumbstick values every second to verify we're getting input
+        if (logCounter++ % 60 == 0) {
+            SIBR_LOG << "[VR Debug] Right stick: (" << rotateStick.x() << ", " << rotateStick.y() 
+                     << "), Offset: (" << m_cameraOffset.x() << ", " << m_cameraOffset.y() << ", " << m_cameraOffset.z() << ")" << std::endl;
+        }
+
+        // Apply deadzone
+        const float deadzone = 0.15f;
+        if (std::abs(rotateStick.x()) < deadzone) rotateStick.x() = 0.0f;
+        if (std::abs(rotateStick.y()) < deadzone) rotateStick.y() = 0.0f;
+
+        // Accumulate translation using RIGHT stick (X = strafe, Y = forward/back)
+        if (rotateStick.x() != 0.0f || rotateStick.y() != 0.0f)
+        {
+            // Get camera orientation from view matrix
+            Eigen::Vector3f forward = camera.view().col(2).head<3>();
+            Eigen::Vector3f right = camera.view().col(0).head<3>();
+            
+            // Project to horizontal plane (remove Y component for level movement)
+            forward.y() = 0.0f;
+            right.y() = 0.0f;
+            forward.normalize();
+            right.normalize();
+            
+            // Calculate movement direction based on thumbstick input
+            Eigen::Vector3f move = right * rotateStick.x() * m_moveSpeed - forward * rotateStick.y() * m_moveSpeed;
+            
+            // Accumulate offset instead of directly modifying camera
+            m_cameraOffset += move;
+            
+            // Log movement for debugging
+            static int moveLogCounter = 0;
+            if (moveLogCounter++ % 60 == 0) {
+                SIBR_LOG << "[VR Movement] Stick: (" << rotateStick.x() << ", " << rotateStick.y() 
+                         << "), Move: (" << move.x() << ", " << move.y() << ", " << move.z() << ")" << std::endl;
+                SIBR_LOG << "[VR Movement] Total offset: (" << m_cameraOffset.x() << ", " << m_cameraOffset.y() << ", " << m_cameraOffset.z() << ")" << std::endl;
+            }
+        }
+        
+        // Apply accumulated offset to camera
+        camera.translate(m_cameraOffset);
     }
 
 } /*namespace sibr*/

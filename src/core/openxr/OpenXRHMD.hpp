@@ -292,6 +292,24 @@ namespace sibr
          */
         void getVisibilityMask(Eye eye, XrVisibilityMaskKHR &visibilityMask) const;
 
+        /**
+         * @brief Poll controller input actions (thumbsticks)
+         * @return true if actions were successfully polled
+         */
+        bool pollActions();
+
+        /**
+         * @brief Get thumbstick axes for movement (left stick)
+         * @return Vector2f with X (strafe) and Y (forward/back) axes, range [-1, 1]
+         */
+        Eigen::Vector2f getMovementThumbstick() const;
+
+        /**
+         * @brief Get thumbstick axes for rotation (right stick)
+         * @return Vector2f with X (yaw) and Y (pitch) axes, range [-1, 1]
+         */
+        Eigen::Vector2f getRotationThumbstick() const;
+
     private:
         // Name of the application displayed in the headset
         std::string m_applicationName;
@@ -353,6 +371,15 @@ namespace sibr
         std::string m_runtimeName = "";
         std::string m_runtimeVersion = "";
 
+        // OpenXR action set and actions for controller input
+        XrActionSet m_actionSet = XR_NULL_HANDLE;
+        XrAction m_moveAction = XR_NULL_HANDLE;        // Vector2 for left thumbstick (movement)
+        XrAction m_rotateAction = XR_NULL_HANDLE;      // Vector2 for right thumbstick (rotation)
+        XrSpace m_handSpaces[2] = {XR_NULL_HANDLE, XR_NULL_HANDLE}; // left/right hand spaces
+        XrPath m_handPaths[2] = {XR_NULL_PATH, XR_NULL_PATH};
+        Eigen::Vector2f m_moveThumbstick = Eigen::Vector2f::Zero();
+        Eigen::Vector2f m_rotateThumbstick = Eigen::Vector2f::Zero();
+
         // Debug purpose
         bool m_printApiLayers = false;
         bool m_printSystemProperties = false;
@@ -368,6 +395,8 @@ namespace sibr
         bool createSession(const XrSessionCreateInfo &m_sessionCreateInfo);
         bool createReferenceSpace();
         bool createSwapchain();
+        bool createActions();
+        bool attachActionSet();
         bool synchronizeSession();
         void updateCurrentSessionState(const XrSessionState &state);
         void updateRefreshReport();

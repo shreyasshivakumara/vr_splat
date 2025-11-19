@@ -60,6 +60,9 @@ namespace sibr
         void onGui();
 
     private:
+        /** Apply VR controller thumbstick movement to camera */
+        void applyControllerMovement(sibr::Camera &camera);
+
         private:
         std::unique_ptr<OpenXRHMD> m_openxrHmd;                  ///< OpenXR interface
         sibr::GLShader m_quadShader;                             ///< Shader for drawing left/right eye in desktop window
@@ -76,6 +79,10 @@ namespace sibr
         std::shared_ptr<sibr::ImageRGB> m_leftEyeCapture;        ///< Captured left eye image
         std::shared_ptr<sibr::ImageRGB> m_rightEyeCapture;       ///< Captured right eye image
         int m_screenshotCounter = 0;                             ///< Counter for screenshot filenames
+        
+        // VR controller movement
+        Eigen::Vector3f m_cameraOffset = Eigen::Vector3f::Zero(); ///< Accumulated position offset from controller input
+        float m_moveSpeed = 0.15f;                                ///< Movement speed multiplier for controller input
 
         std::pair<uint32_t*, uint32_t*> m_visibilityMask_fullres[2];     ///< Visibility mask for each eye
         std::pair<uint32_t*, uint32_t*> m_visibilityMask_halfres[2];     ///< Visibility mask for each eye
